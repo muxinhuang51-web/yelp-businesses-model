@@ -1,0 +1,12 @@
+{
+  "output": "data/model/business_month_panel.csv",
+  "rows": 3359568,
+  "split_counts": {
+    "train": 3045832,
+    "valid": 153952,
+    "test": 159784
+  },
+  "review_rows_processed": 6958615,
+  "business_month_states": 3384979,
+  "last_complete_month": "2021-12"
+}

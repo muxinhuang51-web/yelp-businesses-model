@@ -1,0 +1,53 @@
+table,field,present_in_sample,null_in_sample,types,example,numeric_summary,string_length_summary,list_length_summary,nested_key_count
+business,address,1000,0,"{""string"": 1000}","1616 Chapala St, Ste 2",{},"{""min"": 0, ""max"": 63, ""mean"": 17.723, ""median"": 17.0}",{},0
+business,attributes,1000,90,"{""object"": 910, ""null"": 90}","{""ByAppointmentOnly"": ""True""}",{},{},{},35
+business,business_id,1000,0,"{""string"": 1000}",Pns2l4eNsfO8kk83dixA6A,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+business,categories,1000,0,"{""string"": 1000}","Doctors, Traditional Chinese Medicine, Naturopathic/Holistic, Acupuncture, Health & Medical, Nutritionists",{},"{""min"": 11, ""max"": 237, ""mean"": 59.049, ""median"": 52.0}",{},0
+business,city,1000,0,"{""string"": 1000}",Santa Barbara,{},"{""min"": 4, ""max"": 19, ""mean"": 9.153, ""median"": 9.0}",{},0
+business,hours,1000,152,"{""object"": 848, ""null"": 152}",,{},{},{},7
+business,is_open,1000,0,"{""int"": 1000}",0,"{""min"": 0, ""max"": 1, ""mean"": 0.793, ""median"": 1.0}",{},{},0
+business,latitude,1000,0,"{""float"": 1000}",34.4266787,"{""min"": 27.5843003458, ""max"": 53.6301604595, ""mean"": 36.6774, ""median"": 39.4686}",{},{},0
+business,longitude,1000,0,"{""float"": 1000}",-119.7111968,"{""min"": -119.886915, ""max"": -74.7532115132, ""mean"": -89.7008, ""median"": -86.113}",{},{},0
+business,name,1000,0,"{""string"": 1000}","Abby Rappoport, LAC, CMQ",{},"{""min"": 2, ""max"": 59, ""mean"": 19.41, ""median"": 18.0}",{},0
+business,postal_code,1000,0,"{""string"": 1000}",93101,{},"{""min"": 0, ""max"": 7, ""mean"": 5.057, ""median"": 5.0}",{},0
+business,review_count,1000,0,"{""int"": 1000}",7,"{""min"": 5, ""max"": 2404, ""mean"": 49.174, ""median"": 15.5}",{},{},0
+business,stars,1000,0,"{""float"": 1000}",5.0,"{""min"": 1.0, ""max"": 5.0, ""mean"": 3.641, ""median"": 4.0}",{},{},0
+business,state,1000,0,"{""string"": 1000}",CA,{},"{""min"": 2, ""max"": 2, ""mean"": 2, ""median"": 2.0}",{},0
+checkin,business_id,1000,0,"{""string"": 1000}",---kPU91CF4Lq2-WlRu9Lw,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+checkin,date,1000,0,"{""string"": 944, ""datetime_string"": 56}","2020-03-13 21:10:56, 2020-06-02 22:18:06, 2020-07-24 22:42:27, 2020-10-24 21:36:13, 2020-12-09 21:23:33, 2021-01-20 17:3",{},"{""min"": 19, ""max"": 1095022, ""mean"": 3433.159, ""median"": 481.0}",{},0
+review,business_id,1000,0,"{""string"": 1000}",XQfwVwDr-v0ZS3_CbbE5Xw,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+review,cool,1000,0,"{""int"": 1000}",0,"{""min"": 0, ""max"": 12, ""mean"": 0.344, ""median"": 0.0}",{},{},0
+review,date,1000,0,"{""datetime_string"": 1000}",2018-07-07 22:09:11,{},"{""min"": 19, ""max"": 19, ""mean"": 19, ""median"": 19.0}",{},0
+review,funny,1000,0,"{""int"": 1000}",0,"{""min"": 0, ""max"": 19, ""mean"": 0.272, ""median"": 0.0}",{},{},0
+review,review_id,1000,0,"{""string"": 1000}",KU_O5udG6zpxOg-VcAEodg,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+review,stars,1000,0,"{""float"": 1000}",3.0,"{""min"": 1.0, ""max"": 5.0, ""mean"": 3.85, ""median"": 4.0}",{},{},0
+review,text,1000,0,"{""string"": 1000}","If you decide to eat here, just be aware it is going to take about 2 hours from beginning to end. We have tried it multi",{},"{""min"": 44, ""max"": 4959, ""mean"": 568.776, ""median"": 413.0}",{},0
+review,useful,1000,0,"{""int"": 1000}",0,"{""min"": 0, ""max"": 15, ""mean"": 0.909, ""median"": 0.0}",{},{},0
+review,user_id,1000,0,"{""string"": 1000}",mh_-eMZ6K5RLWhZyISBhwA,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+tip,business_id,1000,0,"{""string"": 1000}",3uLgwr0qeCNMjKenHJwPGQ,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+tip,compliment_count,1000,0,"{""int"": 1000}",0,"{""min"": 0, ""max"": 1, ""mean"": 0.012, ""median"": 0.0}",{},{},0
+tip,date,1000,0,"{""datetime_string"": 1000}",2012-05-18 02:17:21,{},"{""min"": 19, ""max"": 19, ""mean"": 19, ""median"": 19.0}",{},0
+tip,text,1000,0,"{""string"": 1000}",Avengers time with the ladies.,{},"{""min"": 4, ""max"": 498, ""mean"": 61.254, ""median"": 47.0}",{},0
+tip,user_id,1000,0,"{""string"": 1000}",AGNUgVwnZUey3gcPCJ76iw,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+user,average_stars,1000,0,"{""float"": 1000}",3.91,"{""min"": 1.0, ""max"": 5.0, ""mean"": 3.81, ""median"": 3.83}",{},{},0
+user,compliment_cool,1000,0,"{""int"": 1000}",467,"{""min"": 0, ""max"": 13022, ""mean"": 185.346, ""median"": 11.0}",{},{},0
+user,compliment_cute,1000,0,"{""int"": 1000}",56,"{""min"": 0, ""max"": 1101, ""mean"": 13.678, ""median"": 0.0}",{},{},0
+user,compliment_funny,1000,0,"{""int"": 1000}",467,"{""min"": 0, ""max"": 13022, ""mean"": 185.346, ""median"": 11.0}",{},{},0
+user,compliment_hot,1000,0,"{""int"": 1000}",250,"{""min"": 0, ""max"": 12391, ""mean"": 142.669, ""median"": 7.0}",{},{},0
+user,compliment_list,1000,0,"{""int"": 1000}",18,"{""min"": 0, ""max"": 411, ""mean"": 7.456, ""median"": 0.0}",{},{},0
+user,compliment_more,1000,0,"{""int"": 1000}",65,"{""min"": 0, ""max"": 833, ""mean"": 15.496, ""median"": 3.0}",{},{},0
+user,compliment_note,1000,0,"{""int"": 1000}",232,"{""min"": 0, ""max"": 3196, ""mean"": 79.465, ""median"": 8.0}",{},{},0
+user,compliment_photos,1000,0,"{""int"": 1000}",180,"{""min"": 0, ""max"": 11987, ""mean"": 54.33, ""median"": 1.0}",{},{},0
+user,compliment_plain,1000,0,"{""int"": 1000}",844,"{""min"": 0, ""max"": 16674, ""mean"": 217.319, ""median"": 10.0}",{},{},0
+user,compliment_profile,1000,0,"{""int"": 1000}",55,"{""min"": 0, ""max"": 1183, ""mean"": 12.747, ""median"": 1.0}",{},{},0
+user,compliment_writer,1000,0,"{""int"": 1000}",239,"{""min"": 0, ""max"": 5672, ""mean"": 69.321, ""median"": 5.0}",{},{},0
+user,cool,1000,0,"{""int"": 1000}",5994,"{""min"": 0, ""max"": 62742, ""mean"": 1245.864, ""median"": 121.0}",{},{},0
+user,elite,1000,0,"{""string"": 1000}",2007,{},"{""min"": 0, ""max"": 80, ""mean"": 16.747, ""median"": 9.0}",{},0
+user,fans,1000,0,"{""int"": 1000}",267,"{""min"": 0, ""max"": 3138, ""mean"": 64.694, ""median"": 12.0}",{},{},0
+user,friends,1000,0,"{""string"": 1000}","NSCy54eWehBJyZdG2iE84w, pe42u7DcCH2QmI81NX-8qA, EjlCGf14tYMPJ0rsrL703w, 7OagHIAKx2Rm9z3CQ0OmvA, uZoFvKs0dahfffIqHQf1eA, ",{},"{""min"": 22, ""max"": 359878, ""mean"": 11915.92, ""median"": 4246.0}",{},0
+user,funny,1000,0,"{""int"": 1000}",1259,"{""min"": 0, ""max"": 52593, ""mean"": 974.818, ""median"": 96.5}",{},{},0
+user,name,1000,0,"{""string"": 1000}",Walker,{},"{""min"": 1, ""max"": 21, ""mean"": 5.328, ""median"": 5.0}",{},0
+user,review_count,1000,0,"{""int"": 1000}",585,"{""min"": 1, ""max"": 9941, ""mean"": 390.202, ""median"": 158.5}",{},{},0
+user,useful,1000,0,"{""int"": 1000}",7217,"{""min"": 0, ""max"": 73528, ""mean"": 1725.836, ""median"": 276.5}",{},{},0
+user,user_id,1000,0,"{""string"": 1000}",qVc8ODYU5SZjKXVBgXdI7w,{},"{""min"": 22, ""max"": 22, ""mean"": 22, ""median"": 22.0}",{},0
+user,yelping_since,1000,0,"{""datetime_string"": 1000}",2007-01-25 16:47:26,{},"{""min"": 19, ""max"": 19, ""mean"": 19, ""median"": 19.0}",{},0

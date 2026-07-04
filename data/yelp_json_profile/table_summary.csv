@@ -1,0 +1,6 @@
+table,member_name,size_bytes,rows_seen,rows_profiled,parse_errors,field_count,fields
+business,yelp_academic_dataset_business.json,118863795,150346,1000,0,14,address|attributes|business_id|categories|city|hours|is_open|latitude|longitude|name|postal_code|review_count|stars|state
+checkin,yelp_academic_dataset_checkin.json,286958945,131930,1000,0,2,business_id|date
+review,yelp_academic_dataset_review.json,5341868833,6990280,1000,0,9,business_id|cool|date|funny|review_id|stars|text|useful|user_id
+tip,yelp_academic_dataset_tip.json,180604475,908915,1000,0,5,business_id|compliment_count|date|text|user_id
+user,yelp_academic_dataset_user.json,3363329011,1987897,1000,0,22,average_stars|compliment_cool|compliment_cute|compliment_funny|compliment_hot|compliment_list|compliment_more|compliment_note|compliment_photos|compliment_plain|compliment_profile|compliment_writer|cool|elite|fans|friends|funny|name|review_count|useful|user_id|yelping_since

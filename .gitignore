@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+
+# Large local Yelp data artifacts. These are reproducible from the raw archive
+# and should not be pushed to GitHub.
+data/yelp_json_raw/
+data/model/business_month_panel.csv
+
+# Local editor/system files.
+.DS_Store

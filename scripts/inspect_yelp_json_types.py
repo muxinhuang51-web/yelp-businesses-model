@@ -277,16 +277,37 @@ def write_reports(profiles: dict, out_dir: Path) -> None:
     )
 
 
+def print_field_types(profiles: dict) -> None:
+    print("\nField Types")
+    for table, profile in profiles.items():
+        print(f"\n[{table}]")
+        for field, stat in sorted(profile["field_stats"].items()):
+            types = dict(stat["types"].most_common())
+            example = next(iter(stat["examples"].values()), "")
+            nested_keys = list(dict(stat["nested_keys"].most_common()).keys())
+            line = (
+                f"- {field}: types={types}, "
+                f"present={stat['present']}, null={stat['null']}, "
+                f"example={example}"
+            )
+            if nested_keys:
+                line += f", nested_keys={nested_keys[:12]}"
+            print(line)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Inspect Yelp JSON Lines field types.")
     parser.add_argument("archive", nargs="?", default=DEFAULT_ARCHIVE, help="Path to yelp_dataset.tar")
     parser.add_argument("--out-dir", default=DEFAULT_OUT_DIR)
     parser.add_argument("--sample-lines", type=int, default=1000, help="Rows to profile per JSON table")
     parser.add_argument("--count-all", action="store_true", help="Also count every row in each JSON file")
+    parser.add_argument("--print-fields", action="store_true", help="Print all sampled field types to stdout")
     args = parser.parse_args()
 
     profiles = profile_archive(args.archive, args.sample_lines, args.count_all)
     write_reports(profiles, Path(args.out_dir))
+    if args.print_fields:
+        print_field_types(profiles)
     print(f"wrote reports to {args.out_dir}")
     return 0
 

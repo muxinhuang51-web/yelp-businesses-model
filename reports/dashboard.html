@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yelp 商家月度热度预测</title>
+  <style>
+    body { margin:0; font-family: Arial, "Microsoft YaHei", sans-serif; background:#f5f7f8; color:#1f2933; }
+    header { padding:28px 36px; background:#0f3d4a; color:#fff; }
+    h1 { margin:0 0 8px; font-size:28px; }
+    header p { margin:0; color:#d8e6ea; }
+    main { padding:24px 36px 42px; }
+    .metrics { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px; margin-bottom:18px; }
+    .metric, .panel { background:#fff; border:1px solid #d8e0e4; border-radius:8px; box-shadow:0 1px 2px rgba(15,61,74,.05); }
+    .metric { padding:16px; }
+    .metric-title { color:#60717a; font-size:13px; }
+    .metric-value { font-size:26px; font-weight:700; margin-top:8px; }
+    .metric-note { color:#7a8a91; font-size:12px; margin-top:6px; }
+    .panel { padding:18px; margin-top:18px; overflow:auto; }
+    h2 { font-size:18px; margin:0 0 14px; }
+    table { width:100%; border-collapse:collapse; font-size:13px; }
+    th, td { border-bottom:1px solid #e3e8eb; padding:9px 10px; text-align:left; white-space:nowrap; }
+    th { background:#edf3f5; color:#344955; }
+    .bar-row { display:grid; grid-template-columns: 290px 1fr 90px; gap:10px; align-items:center; margin:9px 0; }
+    .bar-label { font-size:13px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .bar-track { height:12px; background:#e6edf0; border-radius:999px; overflow:hidden; }
+    .bar-fill { height:100%; background:#1f7a8c; }
+    .bar-value { font-size:12px; color:#52636b; text-align:right; }
+    .line-chart text { font-size:11px; fill:#60717a; }
+    .note { color:#52636b; line-height:1.7; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Yelp 商家未来月度热度预测</h1>
+    <p>目标：用商家-月份状态预测下一月新增评论数量。当前模型：标准库 log-linear baseline。</p>
+  </header>
+  <main>
+    <div class="metrics">
+    <section class="metric">
+      <div class="metric-title">面板样本数</div>
+      <div class="metric-value">3,359,568</div>
+      <div class="metric-note">商家-月份样本</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-title">训练集</div>
+      <div class="metric-value">3,045,832</div>
+      <div class="metric-note">按标签月份切分</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-title">验证集</div>
+      <div class="metric-value">153,952</div>
+      <div class="metric-note">2021-01 至 2021-06</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-title">测试集</div>
+      <div class="metric-value">159,784</div>
+      <div class="metric-note">2021-07 至 2021-12</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-title">测试 MAE</div>
+      <div class="metric-value">0.9164</div>
+      <div class="metric-note">log-linear model</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-title">测试 RMSLE</div>
+      <div class="metric-value">0.4888</div>
+      <div class="metric-note">越低越好</div>
+    </section>
+    </div>
+    
+    <section class="panel">
+      <h2>模型误差对比</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>数据集</th><th>样本数</th><th>模型 MAE</th><th>上月基线 MAE</th>
+            <th>模型 RMSE</th><th>上月基线 RMSE</th><th>模型 RMSLE</th><th>上月基线 RMSLE</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>train</td>
+              <td>3,045,832</td>
+              <td>0.9438</td>
+              <td>1.3335</td>
+              <td>1.8269</td>
+              <td>1.9660</td>
+              <td>0.4740</td>
+              <td>0.6740</td>
+            </tr>
+            
+            <tr>
+              <td>valid</td>
+              <td>153,952</td>
+              <td>0.9452</td>
+              <td>1.2959</td>
+              <td>1.7159</td>
+              <td>1.8768</td>
+              <td>0.4915</td>
+              <td>0.6709</td>
+            </tr>
+            
+            <tr>
+              <td>test</td>
+              <td>159,784</td>
+              <td>0.9164</td>
+              <td>1.3034</td>
+              <td>1.6527</td>
+              <td>1.8938</td>
+              <td>0.4888</td>
+              <td>0.6768</td>
+            </tr>
+            </tbody>
+      </table>
+    </section>
+    
+    
+    <section class="panel">
+      <h2>全量标签月份新增评论总量走势</h2>
+      <svg viewBox="0 0 900 260" class="line-chart" role="img">
+        <polyline points="48.0,96.7 59.7,94.0 71.4,84.1 83.2,93.9 94.9,85.7 106.6,90.2 118.3,72.8 130.0,86.4 141.7,107.9 153.5,115.8 165.2,128.4 176.9,127.6 188.6,101.8 200.3,103.2 212.1,81.9 223.8,78.1 235.5,67.5 247.2,63.9 258.9,50.8 270.6,67.1 282.4,92.0 294.1,88.9 305.8,102.3 317.5,104.2 329.2,81.2 341.0,85.6 352.7,47.6 364.4,47.6 376.1,48.0 387.8,41.9 399.5,18.0 411.3,43.5 423.0,69.0 434.7,75.9 446.4,91.2 458.1,82.3 469.9,66.9 481.6,71.8 493.3,37.5 505.0,52.6 516.7,48.1 528.5,40.3 540.2,36.1 551.9,40.3 563.6,66.4 575.3,78.6 587.0,97.7 598.8,99.9 610.5,90.8 622.2,87.2 633.9,148.4 645.6,222.0 657.4,216.2 669.1,186.2 680.8,162.6 692.5,146.7 704.2,150.8 715.9,150.4 727.7,166.6 739.4,171.2 751.1,161.8 762.8,164.3 774.5,139.3 786.3,129.7 798.0,120.4 809.7,115.7 821.4,110.0 833.1,120.5 844.8,149.8 856.6,148.9 868.3,154.4 880.0,150.2" fill="none" stroke="#1f7a8c" stroke-width="3" />
+        <line x1="48" y1="222" x2="880" y2="222" stroke="#ccd5d9" />
+        <line x1="48" y1="18" x2="48" y2="222" stroke="#ccd5d9" />
+        <text x="48.0" y="250" text-anchor="middle">2016-01</text><text x="153.5" y="250" text-anchor="middle">2016-10</text><text x="258.9" y="250" text-anchor="middle">2017-07</text><text x="364.4" y="250" text-anchor="middle">2018-04</text><text x="469.9" y="250" text-anchor="middle">2019-01</text><text x="575.3" y="250" text-anchor="middle">2019-10</text><text x="680.8" y="250" text-anchor="middle">2020-07</text><text x="786.3" y="250" text-anchor="middle">2021-04</text>
+      </svg>
+    </section>
+    
+    
+    <section class="panel">
+      <h2>特征重要性 Top 12</h2>
+      <div class="bars">
+            <div class="bar-row">
+              <div class="bar-label">business_review_count_log</div>
+              <div class="bar-track"><div class="bar-fill" style="width:100.00%"></div></div>
+              <div class="bar-value">0.2817</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">review_count_3m</div>
+              <div class="bar-track"><div class="bar-fill" style="width:75.39%"></div></div>
+              <div class="bar-value">0.2124</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">business_is_open</div>
+              <div class="bar-track"><div class="bar-fill" style="width:22.41%"></div></div>
+              <div class="bar-value">0.0631</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">feedback_count_1m_log</div>
+              <div class="bar-track"><div class="bar-fill" style="width:20.21%"></div></div>
+              <div class="bar-value">0.0569</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">review_count_1m</div>
+              <div class="bar-track"><div class="bar-fill" style="width:19.28%"></div></div>
+              <div class="bar-value">0.0543</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">avg_user_account_age_days</div>
+              <div class="bar-track"><div class="bar-fill" style="width:15.04%"></div></div>
+              <div class="bar-value">0.0424</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">avg_user_feedback_per_review</div>
+              <div class="bar-track"><div class="bar-fill" style="width:12.93%"></div></div>
+              <div class="bar-value">0.0364</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">avg_user_rating_volatility</div>
+              <div class="bar-track"><div class="bar-fill" style="width:9.80%"></div></div>
+              <div class="bar-value">0.0276</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">elite_user_ratio</div>
+              <div class="bar-track"><div class="bar-fill" style="width:9.36%"></div></div>
+              <div class="bar-value">0.0264</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">avg_user_avg_review_text_length</div>
+              <div class="bar-track"><div class="bar-fill" style="width:8.64%"></div></div>
+              <div class="bar-value">0.0243</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">avg_user_friend_count_log</div>
+              <div class="bar-track"><div class="bar-fill" style="width:7.16%"></div></div>
+              <div class="bar-value">0.0202</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">business_stars</div>
+              <div class="bar-track"><div class="bar-fill" style="width:3.93%"></div></div>
+              <div class="bar-value">0.0111</div>
+            </div>
+            </div>
+    </section>
+    
+    
+    <section class="panel">
+      <h2>测试集预测样例</h2>
+      <table>
+        <thead><tr><th>business_id</th><th>特征月</th><th>标签月</th><th>真实值</th><th>模型预测</th><th>上月基线</th></tr></thead>
+        <tbody>
+            <tr>
+              <td>---kPU91CF4Lq2-WlRu9Lw</td>
+              <td>2021-10</td>
+              <td>2021-11</td>
+              <td>5</td>
+              <td>0.53</td>
+              <td>2</td>
+            </tr>
+            
+            <tr>
+              <td>---kPU91CF4Lq2-WlRu9Lw</td>
+              <td>2021-11</td>
+              <td>2021-12</td>
+              <td>1</td>
+              <td>0.72</td>
+              <td>5</td>
+            </tr>
+            
+            <tr>
+              <td>--0iUa4sNDFiZFrAdIWhZQ</td>
+              <td>2021-06</td>
+              <td>2021-07</td>
+              <td>0</td>
+              <td>0.23</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--9osgUCSDUWUkoTLdvYhQ</td>
+              <td>2021-09</td>
+              <td>2021-10</td>
+              <td>0</td>
+              <td>0.34</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--FcbSxK1AoEtEAxOgBaCw</td>
+              <td>2021-07</td>
+              <td>2021-08</td>
+              <td>0</td>
+              <td>0.67</td>
+              <td>4</td>
+            </tr>
+            
+            <tr>
+              <td>--FcbSxK1AoEtEAxOgBaCw</td>
+              <td>2021-10</td>
+              <td>2021-11</td>
+              <td>0</td>
+              <td>0.44</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--N9yp3ZWqQIm7DqKRvorg</td>
+              <td>2021-10</td>
+              <td>2021-11</td>
+              <td>0</td>
+              <td>0.22</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--S43ruInmIsGrnnkmavRw</td>
+              <td>2021-07</td>
+              <td>2021-08</td>
+              <td>2</td>
+              <td>0.80</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--S43ruInmIsGrnnkmavRw</td>
+              <td>2021-08</td>
+              <td>2021-09</td>
+              <td>0</td>
+              <td>0.97</td>
+              <td>2</td>
+            </tr>
+            
+            <tr>
+              <td>--SJXpAa0E-GCp2smaHf0A</td>
+              <td>2021-10</td>
+              <td>2021-11</td>
+              <td>0</td>
+              <td>0.16</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--_9CAxgfXZmoFdNIRrhHA</td>
+              <td>2021-08</td>
+              <td>2021-09</td>
+              <td>0</td>
+              <td>0.06</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--eBbs3HpZYIym5pEw8Qdw</td>
+              <td>2021-09</td>
+              <td>2021-10</td>
+              <td>1</td>
+              <td>0.39</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--eBbs3HpZYIym5pEw8Qdw</td>
+              <td>2021-10</td>
+              <td>2021-11</td>
+              <td>0</td>
+              <td>0.33</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--epgcb7xHGuJ-4PUeSLAw</td>
+              <td>2021-11</td>
+              <td>2021-12</td>
+              <td>3</td>
+              <td>0.42</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--hF_3v1JmU9nlu4zfXJ8Q</td>
+              <td>2021-09</td>
+              <td>2021-10</td>
+              <td>4</td>
+              <td>0.29</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--hF_3v1JmU9nlu4zfXJ8Q</td>
+              <td>2021-10</td>
+              <td>2021-11</td>
+              <td>5</td>
+              <td>0.50</td>
+              <td>4</td>
+            </tr>
+            
+            <tr>
+              <td>--hF_3v1JmU9nlu4zfXJ8Q</td>
+              <td>2021-11</td>
+              <td>2021-12</td>
+              <td>3</td>
+              <td>0.64</td>
+              <td>5</td>
+            </tr>
+            
+            <tr>
+              <td>--lqIzK-ZVTtgwiQM63XgQ</td>
+              <td>2021-09</td>
+              <td>2021-10</td>
+              <td>0</td>
+              <td>0.02</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>--rS-rnOIZxoiDA8yctWpQ</td>
+              <td>2021-08</td>
+              <td>2021-09</td>
+              <td>2</td>
+              <td>0.17</td>
+              <td>2</td>
+            </tr>
+            
+            <tr>
+              <td>--rS-rnOIZxoiDA8yctWpQ</td>
+              <td>2021-09</td>
+              <td>2021-10</td>
+              <td>3</td>
+              <td>0.30</td>
+              <td>2</td>
+            </tr>
+            </tbody>
+      </table>
+    </section>
+    
+    <section class="panel">
+      <h2>建模口径说明</h2>
+      <p class="note">
+        人性指标本身属于用户，不直接属于商家。本模型先通过 <code>review.user_id</code> 和
+        <code>review.business_id</code> 将用户行为映射到商家，再在商家-月份粒度上聚合为客群画像。
+        因变量为下一月新增评论数量，因此它是商家未来月度热度的代理标签。
+      </p>
+    </section>
+  </main>
+</body>
+</html>

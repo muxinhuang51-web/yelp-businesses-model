@@ -1,0 +1,29 @@
+{
+  "train": {
+    "rows": 3045832,
+    "model_mae": 0.943823218689482,
+    "model_rmse": 1.8269372307540621,
+    "model_rmsle": 0.47399449299012386,
+    "baseline_mae": 1.3334878614447547,
+    "baseline_rmse": 1.965997676242723,
+    "baseline_rmsle": 0.6740484850405205
+  },
+  "valid": {
+    "rows": 153952,
+    "model_mae": 0.945195666392191,
+    "model_rmse": 1.7159321670633547,
+    "model_rmsle": 0.4915025575955682,
+    "baseline_mae": 1.2958779359800456,
+    "baseline_rmse": 1.8767685485942918,
+    "baseline_rmsle": 0.6708976843962199
+  },
+  "test": {
+    "rows": 159784,
+    "model_mae": 0.9163693461921518,
+    "model_rmse": 1.6526653336369095,
+    "model_rmsle": 0.488789076332332,
+    "baseline_mae": 1.3034283783107194,
+    "baseline_rmse": 1.8938283028339264,
+    "baseline_rmsle": 0.676811255351027
+  }
+}

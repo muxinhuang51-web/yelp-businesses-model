@@ -1,0 +1,1075 @@
+{
+  "business": {
+    "member_name": "yelp_academic_dataset_business.json",
+    "size_bytes": 118863795,
+    "rows_seen": 150346,
+    "rows_profiled": 1000,
+    "parse_errors": 0,
+    "fields": {
+      "address": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "1616 Chapala St, Ste 2"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 0,
+          "max": 63,
+          "mean": 17.723,
+          "median": 17.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "attributes": {
+        "present_in_sample": 1000,
+        "null_in_sample": 90,
+        "types": {
+          "object": 910,
+          "null": 90
+        },
+        "examples": {
+          "object": "{\"ByAppointmentOnly\": \"True\"}",
+          "null": ""
+        },
+        "numeric_summary": {},
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {
+          "BusinessAcceptsCreditCards": 802,
+          "BusinessParking": 617,
+          "RestaurantsPriceRange2": 577,
+          "BikeParking": 499,
+          "WiFi": 397,
+          "RestaurantsTakeOut": 395,
+          "RestaurantsDelivery": 370,
+          "GoodForKids": 369,
+          "OutdoorSeating": 317,
+          "RestaurantsReservations": 291,
+          "HasTV": 289,
+          "Ambience": 284,
+          "RestaurantsGoodForGroups": 282,
+          "Alcohol": 279,
+          "ByAppointmentOnly": 274,
+          "Caters": 267,
+          "RestaurantsAttire": 258,
+          "NoiseLevel": 247,
+          "WheelchairAccessible": 204,
+          "GoodForMeal": 199,
+          "RestaurantsTableService": 132,
+          "DogsAllowed": 127,
+          "HappyHour": 109,
+          "BusinessAcceptsBitcoin": 104,
+          "Music": 62,
+          "CoatCheck": 49,
+          "Smoking": 47,
+          "BestNights": 46,
+          "DriveThru": 44,
+          "GoodForDancing": 40,
+          "AcceptsInsurance": 32,
+          "BYOB": 29,
+          "Corkage": 25,
+          "BYOBCorkage": 10,
+          "HairSpecializesIn": 9
+        }
+      },
+      "business_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "Pns2l4eNsfO8kk83dixA6A"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "categories": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "Doctors, Traditional Chinese Medicine, Naturopathic/Holistic, Acupuncture, Health & Medical, Nutritionists"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 11,
+          "max": 237,
+          "mean": 59.049,
+          "median": 52.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "city": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "Santa Barbara"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 4,
+          "max": 19,
+          "mean": 9.153,
+          "median": 9.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "hours": {
+        "present_in_sample": 1000,
+        "null_in_sample": 152,
+        "types": {
+          "object": 848,
+          "null": 152
+        },
+        "examples": {
+          "null": "",
+          "object": "{\"Monday\": \"0:0-0:0\", \"Tuesday\": \"8:0-18:30\", \"Wednesday\": \"8:0-18:30\", \"Thursday\": \"8:0-18:30\", \"Friday\": \"8:0-18:30\", "
+        },
+        "numeric_summary": {},
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {
+          "Friday": 833,
+          "Thursday": 830,
+          "Wednesday": 824,
+          "Tuesday": 802,
+          "Monday": 749,
+          "Saturday": 741,
+          "Sunday": 531
+        }
+      },
+      "is_open": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "0"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.793,
+          "median": 1.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "latitude": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "float": 1000
+        },
+        "examples": {
+          "float": "34.4266787"
+        },
+        "numeric_summary": {
+          "min": 27.5843003458,
+          "max": 53.6301604595,
+          "mean": 36.6774,
+          "median": 39.4686
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "longitude": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "float": 1000
+        },
+        "examples": {
+          "float": "-119.7111968"
+        },
+        "numeric_summary": {
+          "min": -119.886915,
+          "max": -74.7532115132,
+          "mean": -89.7008,
+          "median": -86.113
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "name": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "Abby Rappoport, LAC, CMQ"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 2,
+          "max": 59,
+          "mean": 19.41,
+          "median": 18.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "postal_code": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "93101"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 0,
+          "max": 7,
+          "mean": 5.057,
+          "median": 5.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "review_count": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "7"
+        },
+        "numeric_summary": {
+          "min": 5,
+          "max": 2404,
+          "mean": 49.174,
+          "median": 15.5
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "stars": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "float": 1000
+        },
+        "examples": {
+          "float": "5.0"
+        },
+        "numeric_summary": {
+          "min": 1.0,
+          "max": 5.0,
+          "mean": 3.641,
+          "median": 4.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "state": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "CA"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 2,
+          "max": 2,
+          "mean": 2,
+          "median": 2.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      }
+    }
+  },
+  "checkin": {
+    "member_name": "yelp_academic_dataset_checkin.json",
+    "size_bytes": 286958945,
+    "rows_seen": 131930,
+    "rows_profiled": 1000,
+    "parse_errors": 0,
+    "fields": {
+      "business_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "---kPU91CF4Lq2-WlRu9Lw"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "date": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 944,
+          "datetime_string": 56
+        },
+        "examples": {
+          "string": "2020-03-13 21:10:56, 2020-06-02 22:18:06, 2020-07-24 22:42:27, 2020-10-24 21:36:13, 2020-12-09 21:23:33, 2021-01-20 17:3",
+          "datetime_string": "2018-05-11 18:23:36"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 19,
+          "max": 1095022,
+          "mean": 3433.159,
+          "median": 481.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      }
+    }
+  },
+  "review": {
+    "member_name": "yelp_academic_dataset_review.json",
+    "size_bytes": 5341868833,
+    "rows_seen": 6990280,
+    "rows_profiled": 1000,
+    "parse_errors": 0,
+    "fields": {
+      "business_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "XQfwVwDr-v0ZS3_CbbE5Xw"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "cool": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "0"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 12,
+          "mean": 0.344,
+          "median": 0.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "date": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "datetime_string": 1000
+        },
+        "examples": {
+          "datetime_string": "2018-07-07 22:09:11"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 19,
+          "max": 19,
+          "mean": 19,
+          "median": 19.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "funny": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "0"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 19,
+          "mean": 0.272,
+          "median": 0.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "review_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "KU_O5udG6zpxOg-VcAEodg"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "stars": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "float": 1000
+        },
+        "examples": {
+          "float": "3.0"
+        },
+        "numeric_summary": {
+          "min": 1.0,
+          "max": 5.0,
+          "mean": 3.85,
+          "median": 4.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "text": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "If you decide to eat here, just be aware it is going to take about 2 hours from beginning to end. We have tried it multi"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 44,
+          "max": 4959,
+          "mean": 568.776,
+          "median": 413.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "useful": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "0"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 15,
+          "mean": 0.909,
+          "median": 0.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "user_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "mh_-eMZ6K5RLWhZyISBhwA"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      }
+    }
+  },
+  "tip": {
+    "member_name": "yelp_academic_dataset_tip.json",
+    "size_bytes": 180604475,
+    "rows_seen": 908915,
+    "rows_profiled": 1000,
+    "parse_errors": 0,
+    "fields": {
+      "business_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "3uLgwr0qeCNMjKenHJwPGQ"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_count": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "0"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.012,
+          "median": 0.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "date": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "datetime_string": 1000
+        },
+        "examples": {
+          "datetime_string": "2012-05-18 02:17:21"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 19,
+          "max": 19,
+          "mean": 19,
+          "median": 19.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "text": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "Avengers time with the ladies."
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 4,
+          "max": 498,
+          "mean": 61.254,
+          "median": 47.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "user_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "AGNUgVwnZUey3gcPCJ76iw"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      }
+    }
+  },
+  "user": {
+    "member_name": "yelp_academic_dataset_user.json",
+    "size_bytes": 3363329011,
+    "rows_seen": 1987897,
+    "rows_profiled": 1000,
+    "parse_errors": 0,
+    "fields": {
+      "average_stars": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "float": 1000
+        },
+        "examples": {
+          "float": "3.91"
+        },
+        "numeric_summary": {
+          "min": 1.0,
+          "max": 5.0,
+          "mean": 3.81,
+          "median": 3.83
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_cool": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "467"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 13022,
+          "mean": 185.346,
+          "median": 11.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_cute": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "56"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 1101,
+          "mean": 13.678,
+          "median": 0.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_funny": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "467"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 13022,
+          "mean": 185.346,
+          "median": 11.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_hot": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "250"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 12391,
+          "mean": 142.669,
+          "median": 7.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_list": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "18"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 411,
+          "mean": 7.456,
+          "median": 0.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_more": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "65"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 833,
+          "mean": 15.496,
+          "median": 3.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_note": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "232"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 3196,
+          "mean": 79.465,
+          "median": 8.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_photos": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "180"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 11987,
+          "mean": 54.33,
+          "median": 1.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_plain": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "844"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 16674,
+          "mean": 217.319,
+          "median": 10.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_profile": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "55"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 1183,
+          "mean": 12.747,
+          "median": 1.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "compliment_writer": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "239"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 5672,
+          "mean": 69.321,
+          "median": 5.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "cool": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "5994"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 62742,
+          "mean": 1245.864,
+          "median": 121.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "elite": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "2007"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 0,
+          "max": 80,
+          "mean": 16.747,
+          "median": 9.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "fans": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "267"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 3138,
+          "mean": 64.694,
+          "median": 12.0
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "friends": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "NSCy54eWehBJyZdG2iE84w, pe42u7DcCH2QmI81NX-8qA, EjlCGf14tYMPJ0rsrL703w, 7OagHIAKx2Rm9z3CQ0OmvA, uZoFvKs0dahfffIqHQf1eA, "
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 359878,
+          "mean": 11915.92,
+          "median": 4246.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "funny": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "1259"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 52593,
+          "mean": 974.818,
+          "median": 96.5
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "name": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "Walker"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 1,
+          "max": 21,
+          "mean": 5.328,
+          "median": 5.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "review_count": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "585"
+        },
+        "numeric_summary": {
+          "min": 1,
+          "max": 9941,
+          "mean": 390.202,
+          "median": 158.5
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "useful": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "int": 1000
+        },
+        "examples": {
+          "int": "7217"
+        },
+        "numeric_summary": {
+          "min": 0,
+          "max": 73528,
+          "mean": 1725.836,
+          "median": 276.5
+        },
+        "string_length_summary": {},
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "user_id": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "string": 1000
+        },
+        "examples": {
+          "string": "qVc8ODYU5SZjKXVBgXdI7w"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 22,
+          "max": 22,
+          "mean": 22,
+          "median": 22.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      },
+      "yelping_since": {
+        "present_in_sample": 1000,
+        "null_in_sample": 0,
+        "types": {
+          "datetime_string": 1000
+        },
+        "examples": {
+          "datetime_string": "2007-01-25 16:47:26"
+        },
+        "numeric_summary": {},
+        "string_length_summary": {
+          "min": 19,
+          "max": 19,
+          "mean": 19,
+          "median": 19.0
+        },
+        "list_length_summary": {},
+        "nested_keys": {}
+      }
+    }
+  }
+}
